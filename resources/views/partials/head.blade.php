@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <title>
-    @lang('melyago.melyago_title')
+   KPMG PROJECT
 </title>
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,4 +41,9 @@
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.15/dist/summernote.min.css" rel="stylesheet">
 
 
-
+<!-- Chat dependencies -->
+<!-- Chat Fonts
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">-->
+<!-- Chat Styles
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">-->

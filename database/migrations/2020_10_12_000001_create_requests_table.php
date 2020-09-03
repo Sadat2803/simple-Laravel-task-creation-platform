@@ -18,9 +18,13 @@ class CreateRequestsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->longText('description');
             $table->enum('state',['pending','processing','finished']);
+            $table->unsignedBigInteger('treated_by')->nullable();
+            $table->unsignedBigInteger('range_id');
             $table->timestamps();
 
+            $table->foreign('range_id')->references('id')->on('ranges');
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('treated_by')->references('id')->on('users');
         });
     }
 

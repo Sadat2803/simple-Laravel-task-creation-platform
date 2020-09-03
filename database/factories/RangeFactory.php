@@ -1,8 +1,8 @@
 <?php
 
 use Faker\Generator as Faker;
-
-$factory->define(Model::class, function (Faker $faker) {
+use App\Range;
+$factory->define(Range::class, function (Faker $faker) {
     return [
         //
     ];

@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password',
+        'first_name', 'last_name', 'email', 'password','range_id'
     ];
 
     /**
@@ -37,7 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getLatestMessage(){       
+    public function getLatestMessage(){
 
         return Message::where( function($q){
             $q->where('from_id', auth()->id());
@@ -48,6 +48,15 @@ class User extends Authenticatable
         })
         ->orderBy('id', 'desc')
         ->first();
-        
+
     }
+    public function isAdmin()
+    {
+        return User::findOrFail($this->id)->role==1;
+    }
+    public function department()
+    {
+        return $this->belongsTo('App\Department');
+    }
+
 }

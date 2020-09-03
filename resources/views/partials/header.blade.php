@@ -1,9 +1,9 @@
 <div class="page-header-inner">
     <div class="page-header-inner">
         <div class="navbar-header">
-            <a href="{{ url('/') }}"
+            <a href="#"
                class="navbar-brand">
-                @lang('melyago.melyago_title')
+               KPMG PROJECT
             </a>
         </div>
         <a href="javascript:;"

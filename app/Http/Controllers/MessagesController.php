@@ -6,10 +6,14 @@ use Illuminate\Http\Request;
 use App\Message;
 use App\Events\SendMessage;
 
-class MessageController extends Controller
+class MessagesController extends Controller
 {
-    public function index($id){       
-        $this->setRead($id);   
+    public function displayChatSection()
+    {
+        return view('chat.chat_section');
+    }
+    public function index($id){
+        $this->setRead($id);
 
         $messages = Message::where( function($q) use ($id){
             $q->where('from_id', auth()->id());
@@ -35,7 +39,7 @@ class MessageController extends Controller
     }
 
     public function read($id){
-        $this->setRead($id);   
+        $this->setRead($id);
     }
 
     private function setRead($id){

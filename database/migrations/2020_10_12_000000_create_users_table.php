@@ -21,10 +21,12 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->integer('role');
-            $table->bigInteger('departmenet_id');
+            $table->unsignedBigInteger('department_id');
+            $table->unsignedBigInteger('range_id');
             $table->rememberToken();
             $table->timestamps();
 
+            $table->foreign('range_id')->references('id')->on('ranges');
             $table->foreign('department_id')->references('id')->on('departments');
         });
     }

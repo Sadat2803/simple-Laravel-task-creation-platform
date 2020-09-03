@@ -11,16 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
+Route::group(['middleware' => ['auth']], function () {
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/contacts', 'ContactController@index');
+    Route::get('/messages/{id}', 'MessagesController@index')->name('getMessages');
+    Route::post('/messages/send', 'MessagesController@send')->name('sendMessage');
+    Route::get('/read/{id}', 'MessagesController@read');
+    Route::get('/requests', 'RequestsController@requests')->name('requests');
+    Route::get('/user_requests', 'RequestsController@userRequests')->name('userRequests');
+    Route::get('/user_processing_requests', 'RequestsController@userProcessingRequests')->name('userProcessingRequests');
+    Route::get('/user_processing_requests', 'RequestsController@userProcessingRequests')->name('userProcessingRequests');
+    Route::post('/select_request', 'RequestsController@selectRequest')->name('selectRequest');
 
-Route::get('/contacts', 'ContactController@index');
+    Route::get('/chat', 'MessagesController@displayChatSection')->name('chat');
+});
+Route::get('/users', 'UsersController@index')->name('users')->middleware('auth.admin');
 
-Route::get('/messages/{id}', 'MessageController@index');
-Route::post('/messages/send', 'MessageController@send');
-Route::get('/read/{id}', 'MessageController@read');
+
+
+

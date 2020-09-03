@@ -4,7 +4,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Demandes de travail de <b>{{Auth::user()->first_name}} {{Auth::user()->last_name}}</b> </h3>
+            <h3 class="card-title">Demandes traitées par <b>{{Auth::user()->first_name}} {{Auth::user()->last_name}}</b> </h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -12,21 +12,24 @@
                 <thead>
                 <tr>
                     <th>Demande</th>
+                    <th>Demandeur</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
                     <th>Description</th>
                     <th>Etat</th>
-                    <th>Traité par</th>
-                    <th>Nom traiteur</th>
-                    <th>Actions</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($requests as $request)
                     <tr>
                         <td>{{$request->request_id}}</td>
+                        <td>{{$request->user_id}}</td>
+                        <td>{{$request->last_name}}</td>
+                        <td>{{$request->first_name}}</td>
                         <td>{{$request->request_description}}</td>
                         <td>{{$request->request_state}}</td>
-                        <td>{{$request->treated_by}}</td>
-                        <td>{{$request->treater_name}}</td>
+                        <td><button type="button" class="btn btn-sm btn-block btn-info">Délivrez</button></td>
                     </tr>
                 @endforeach
                 </tbody>
