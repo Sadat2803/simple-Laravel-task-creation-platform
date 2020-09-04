@@ -20,19 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3694bab8-0cc2-4f8f-b75a-ac3f6d35164a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/5_uploads/1599212042.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/1599210330.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/1599210618.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/1599210952.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/1599211198.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/uploads/1599211243.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/work_requests/received_documents.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RequestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RequestsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/work_requests/user_processing_requests.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/work_requests/user_processing_requests.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/work_requests/user_requests.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/work_requests/user_requests.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +171,8 @@
       <option name="presentableId" value="Default" />
       <updated>1599053618803</updated>
       <workItem from="1599053620238" duration="56287000" />
-      <workItem from="1599205768984" duration="7323000" />
+      <workItem from="1599205768984" duration="7487000" />
+      <workItem from="1599217971382" duration="191000" />
     </task>
     <servers />
   </component>
