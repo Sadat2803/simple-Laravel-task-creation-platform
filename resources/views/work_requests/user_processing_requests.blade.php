@@ -6,6 +6,12 @@
         <div class="card-header">
             <h3 class="card-title">Demandes traitées par <b>{{Auth::user()->first_name}} {{Auth::user()->last_name}}</b> </h3>
         </div>
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>{{ $message }}</strong>
+            </div>
+    @endif
         <!-- /.card-header -->
         <div class="card-body">
             <table id="requestsTable" class="table table-bordered table-striped">
@@ -18,6 +24,7 @@
                     <th>Description</th>
                     <th>Etat</th>
                     <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -29,11 +36,28 @@
                         <td>{{$request->first_name}}</td>
                         <td>{{$request->request_description}}</td>
                         <td>{{$request->request_state}}</td>
-                        <td><button type="button" class="btn btn-sm btn-block btn-info">Délivrez</button></td>
+                        <td><a  target="_blank" href="{{route('chat')}}" class="btn btn-sm btn-block btn-info">Ouvrir discussion</a></td>
+                        <td>
+                            <form action="{{ route('fileUpload') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <row>
+                                    <div class="col-md-4">
+                                        <button type="submit" class="btn btn-success">Délivrez travail</button>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <input type="file" name="file" class="form-control">
+                                    </div>
+                                    <input hidden name="request_id" value="{{$request->request_id}}" >
+
+                                </row>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
+
+
         </div>
         <!-- /.card-body -->
     </div>

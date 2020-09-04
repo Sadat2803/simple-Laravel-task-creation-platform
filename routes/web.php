@@ -21,10 +21,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/messages/send', 'MessagesController@send')->name('sendMessage');
     Route::get('/read/{id}', 'MessagesController@read');
     Route::get('/requests', 'RequestsController@requests')->name('requests');
+    Route::post('/createRequest', 'RequestsController@createRequest')->name('createRequest');
+    Route::post('/closeRequest', 'RequestsController@closeRequest')->name('closeRequest');
+    Route::get('/receivedDocuments/{requestId}', 'RequestsController@receivedDocuments')->name('receivedDocuments');
     Route::get('/user_requests', 'RequestsController@userRequests')->name('userRequests');
     Route::get('/user_processing_requests', 'RequestsController@userProcessingRequests')->name('userProcessingRequests');
     Route::get('/user_processing_requests', 'RequestsController@userProcessingRequests')->name('userProcessingRequests');
     Route::post('/select_request', 'RequestsController@selectRequest')->name('selectRequest');
+    Route::post('fileUpload', 'RequestsController@fileUpload')->name('fileUpload');
 
     Route::get('/chat', 'MessagesController@displayChatSection')->name('chat');
 });

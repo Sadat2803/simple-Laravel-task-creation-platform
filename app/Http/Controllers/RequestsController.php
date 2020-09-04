@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use File;
 
 class RequestsController extends Controller
 {
@@ -71,5 +72,50 @@ class RequestsController extends Controller
         \App\Request::findOrFail($request->request_id)->update(['state'=>"processing","treated_by"=>Auth::user()->id]);
         return redirect("requests");
     }
+    public function createRequest(Request $request)
+    {
+        $user = Auth::user();
 
+        $newRequest = \App\Request::create(['user_id'=>$user->id,'description'=>$request->description,"range_id"=>$request->range]);
+        $newRequest->save();
+        $path = $newRequest->id.'_uploads';
+        File::makeDirectory($path);
+        return redirect('user_requests');
+    }
+    public function closeRequest(Request $request)
+    {
+        \App\Request::findOrFail($request->request_id)->update(['state'=>"finished"]);
+        return redirect('user_requests');
+    }
+    public function receivedDocuments($request_id)
+    {
+        $folder_name = $request_id.'_uploads';
+        $path = public_path($folder_name);
+        $files=[];
+        if(File::exists($folder_name))
+        {
+            $files = File::allFiles($path);
+        }
+        $myList = [];
+        foreach ($files as $file)
+        {
+            $path = $request_id.'_uploads/'.$file->getFilename();
+            array_push($myList,$path);
+        }
+        return view('work_requests.received_documents')->with(['files'=>$myList]);
+    }
+    public function fileUpload(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|max:2048',
+        ]);
+
+        $fileName = time().'.'.$request->file->extension();
+        $path = $request->request_id.'_uploads';
+        $request->file->move(public_path($path), $fileName);
+
+        return back()
+            ->with('success','Le demandeur peut maintenant voir le travail envoyé ')
+            ->with('file',$fileName);
+    }
 }
