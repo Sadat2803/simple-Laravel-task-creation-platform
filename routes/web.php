@@ -33,6 +33,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/chat', 'MessagesController@displayChatSection')->name('chat');
 });
 Route::get('/users', 'UsersController@index')->name('users')->middleware('auth.admin');
+Route::post('/createUser', 'UsersController@createUser')->name('createUser')->middleware('auth.admin');
 
 
 

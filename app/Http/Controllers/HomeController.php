@@ -24,6 +24,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(Auth::user()->isAdmin())
+        {
+            return redirect('users');
+        }
         if(Auth::user()->department->location=="local")
         {
             return redirect('requests');
