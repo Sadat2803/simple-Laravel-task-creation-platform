@@ -14,6 +14,7 @@ class RequestsController extends Controller
     {
         $user = Auth::user();
         $requests = DB::table('requests')
+                    ->where('requests.range_id','<=',$user->range_id)
                     ->whereIn('state',['pending'])
                     ->leftJoin('users', 'users.id', 'requests.user_id')
                     ->leftJoin('departments', 'departments.id', 'users.department_id')
