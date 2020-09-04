@@ -57,12 +57,14 @@ class RequestsController extends Controller
         $user = Auth::user();
         $requests = DB::table('requests')
             ->where('requests.user_id',$user->id)
+            ->leftJoin('ranges', 'ranges.id', 'requests.range_id')
             ->leftJoin('users', 'users.id', 'requests.treated_by')
             ->select(  'requests.id as request_id',
                 'requests.description as request_description',
                 'requests.state as request_state',
                 'requests.treated_by as treated_by',
-                'users.last_name as treater_name')
+                'users.last_name as treater_name',
+            'ranges.name as request_range')
             ->get();
         return view('work_requests.user_requests')->with(['requests'=>$requests]);
     }
@@ -79,7 +81,10 @@ class RequestsController extends Controller
         $newRequest = \App\Request::create(['user_id'=>$user->id,'description'=>$request->description,"range_id"=>$request->range]);
         $newRequest->save();
         $path = $newRequest->id.'_uploads';
-        File::makeDirectory($path);
+        if(!File::exists($path))
+        {
+            File::makeDirectory($path);
+        }
         return redirect()->back()->with('success', 'Demande de travail créée avec succès');
 
     }

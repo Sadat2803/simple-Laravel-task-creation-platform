@@ -61,9 +61,10 @@
             <table id="requestsTable" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>Demande</th>
+                  <!--  <th>Demande</th>-->
                     <th>Description</th>
                     <th>Etat</th>
+                    <th>Range</th>
                     <th>Traité par</th>
                     <th>Nom traiteur</th>
                     <th></th>
@@ -73,9 +74,10 @@
                 <tbody>
                 @foreach($requests as $request)
                     <tr>
-                        <td>{{$request->request_id}}</td>
+                      <!--  <td>{{$request->request_id}}</td>-->
                         <td>{{$request->request_description}}</td>
                         <td>{{$request->request_state}}</td>
+                          <td>{{$request->request_range}}</td>
                         <td>{{$request->treated_by}}</td>
                         <td>{{$request->treater_name}}</td>
                         <td><a href="{{route('receivedDocuments',['requestId'=>$request->request_id])}}" class="btn btn-sm btn-block btn-info">Documents reçus</a></td>

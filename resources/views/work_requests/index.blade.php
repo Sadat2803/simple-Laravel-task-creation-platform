@@ -11,8 +11,8 @@
             <table id="requestsTable" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th>Demande</th>
-                        <th>Demandeur</th>
+                       <!-- <th>Demande</th>
+                        <th>Demandeur</th>-->
                         <th>Nom</th>
                         <th>Prénom</th>
                         <th>Description</th>
@@ -23,8 +23,8 @@
                 <tbody>
                 @foreach($requests as $request)
                     <tr>
-                        <td>{{$request->request_id}}</td>
-                        <td>{{$request->user_id}}</td>
+                       <!-- <td>{{$request->request_id}}</td>
+                        <td>{{$request->user_id}}</td>-->
                         <td>{{$request->last_name}}</td>
                         <td>{{$request->first_name}}</td>
                         <td>{{$request->request_description}}</td>

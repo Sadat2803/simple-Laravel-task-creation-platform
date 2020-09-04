@@ -13,5 +13,9 @@ class RequestSeeder extends Seeder
     {
         factory(App\Request::class, 1)->create(['user_id' => 2,'range_id'=>3]);
         factory(App\Request::class, 1)->create(['user_id' => 2,'range_id'=>3]);
+        factory(App\Request::class, 1)->create(['user_id' => 2,'range_id'=>2]);
+        factory(App\Request::class, 1)->create(['user_id' => 2,'range_id'=>2]);
+        factory(App\Request::class, 1)->create(['user_id' => 2,'range_id'=>1]);
+        factory(App\Request::class, 1)->create(['user_id' => 2,'range_id'=>1]);
     }
 }

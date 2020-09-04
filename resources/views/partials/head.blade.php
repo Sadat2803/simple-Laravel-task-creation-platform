@@ -29,5 +29,3 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="{{ url('adminlte/css/dataTables.bootstrap.min.css') }}"/>
 <link rel="stylesheet" type="text/css" href="{{ url('adminlte/css/chart.css') }}"/>
-s
-

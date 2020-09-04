@@ -15,7 +15,7 @@ class CreateRangesTable extends Migration
     {
         Schema::create('ranges', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('number');
+            $table->enum('number',[1,2,3]);
             $table->enum('name',['junior','confirmed','senior']);
             $table->timestamps();
         });
