@@ -6,6 +6,12 @@
         <div class="card-header">
             <h3 class="card-title">Documents reçus</h3>
         </div>
+        @if (empty($files))
+            <div class="alert alert-danger alert-block">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <strong>Aucun document associé à la demande n'a été envoyé jusqu'a présent</strong>
+            </div>
+         @endif
         <!-- /.card-header -->
         <div class="card-body">
             @foreach($files as $file)

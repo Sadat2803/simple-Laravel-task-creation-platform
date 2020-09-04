@@ -45,6 +45,13 @@
     <div>
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Nouvelle demande <i class="fa fa-plus"></i></button>
     </div>
+    </br>
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Demandes de travail de <b>{{Auth::user()->first_name}} {{Auth::user()->last_name}}</b> </h3>
@@ -60,6 +67,7 @@
                     <th>Traité par</th>
                     <th>Nom traiteur</th>
                     <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -71,11 +79,13 @@
                         <td>{{$request->treated_by}}</td>
                         <td>{{$request->treater_name}}</td>
                         <td><a href="{{route('receivedDocuments',['requestId'=>$request->request_id])}}" class="btn btn-sm btn-block btn-info">Documents reçus</a></td>
-                        <form method="post" action="{{route('closeRequest')}}">
+                        <td>
+                            <form method="post" action="{{route('closeRequest')}}">
                             @csrf
-                            <input hidden name="request_id" value="{{$request->request_id}}">
-                            <td><button type="submit" class="btn btn-sm btn-block btn-success">Cloturez demande</button></td>
-                        </form>
+                                <input hidden name="request_id" value="{{$request->request_id}}">
+                               <button type="submit" class="btn btn-sm btn-block btn-success">Cloturez demande</button>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
                 </tbody>

@@ -80,12 +80,13 @@ class RequestsController extends Controller
         $newRequest->save();
         $path = $newRequest->id.'_uploads';
         File::makeDirectory($path);
-        return redirect('user_requests');
+        return redirect()->back()->with('success', 'Demande de travail créée avec succès');
+
     }
     public function closeRequest(Request $request)
     {
         \App\Request::findOrFail($request->request_id)->update(['state'=>"finished"]);
-        return redirect('user_requests');
+        return redirect()->back()->with('success', 'Demande cloturée avec succès');
     }
     public function receivedDocuments($request_id)
     {
