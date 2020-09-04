@@ -13,8 +13,6 @@
 <script src="{{ url('adminlte/plugins/slimScroll/jquery.slimscroll.min.js') }}"></script>
 <script src="{{ url('adminlte/plugins/fastclick/fastclick.js') }}"></script>
 <script src="{{ url('adminlte/js/app.min.js') }}"></script>
-<script src="{{ url('adminlte/plugins/daterangepicker') }}/moment.js"></script>
-<script src="{{ url('adminlte/plugins/daterangepicker') }}/daterangepicker.js"></script>
 <script src="{{ url('adminlte/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ url('adminlte/js/dataTables.bootstrap.min.js') }}"></script>
 <script src="{{ url('adminlte/js/chart.js') }}"></script>
@@ -40,15 +38,6 @@
         }
     });
 
-    $('#update_db_cars').on('click', function(e){
-        $.ajax({
-            method : 'GET',
-            url : $(this).data('href'),
-        })
-            .then(res => res.status === 'success' ? alert(res.data.message) : alert(res.message))
-            .cache(error => alert(error))
-        ;
-    });
 </script>
 
 <script>
