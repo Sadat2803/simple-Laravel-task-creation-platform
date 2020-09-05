@@ -15,9 +15,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3694bab8-0cc2-4f8f-b75a-ac3f6d35164a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/work_requests/user_finished_requests.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/topbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/topbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RequestsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RequestsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/work_requests/user_processing_requests.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/work_requests/user_processing_requests.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +33,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="SYNC" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -169,7 +173,8 @@
       <updated>1599053618803</updated>
       <workItem from="1599053620238" duration="56287000" />
       <workItem from="1599205768984" duration="7487000" />
-      <workItem from="1599217971382" duration="19990000" />
+      <workItem from="1599217971382" duration="20225000" />
+      <workItem from="1599315914837" duration="2550000" />
     </task>
     <servers />
   </component>

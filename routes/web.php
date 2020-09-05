@@ -16,7 +16,7 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/', 'HomeController@index')->name('home');
-    Route::get('/contacts', 'ContactController@index');
+    Route::get('/contacts', 'ContactController@index')->name('contacts');;
     Route::get('/messages/{id}', 'MessagesController@index')->name('getMessages');
     Route::post('/messages/send', 'MessagesController@send')->name('sendMessage');
     Route::get('/read/{id}', 'MessagesController@read');
@@ -26,7 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/receivedDocuments/{requestId}', 'RequestsController@receivedDocuments')->name('receivedDocuments');
     Route::get('/user_requests', 'RequestsController@userRequests')->name('userRequests');
     Route::get('/user_processing_requests', 'RequestsController@userProcessingRequests')->name('userProcessingRequests');
-    Route::get('/user_processing_requests', 'RequestsController@userProcessingRequests')->name('userProcessingRequests');
+    Route::get('/user_finished_requests', 'RequestsController@userFinishedRequests')->name('userFinishedRequests');
     Route::post('/select_request', 'RequestsController@selectRequest')->name('selectRequest');
     Route::post('fileUpload', 'RequestsController@fileUpload')->name('fileUpload');
 

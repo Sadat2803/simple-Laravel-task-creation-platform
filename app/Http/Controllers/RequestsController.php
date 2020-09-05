@@ -36,6 +36,7 @@ class RequestsController extends Controller
         $user = Auth::user();
         $requests = DB::table('requests')
             ->where('requests.treated_by',$user->id)
+            ->where('requests.state',"processing")
             ->leftJoin('users', 'users.id', 'requests.user_id')
             ->leftJoin('departments', 'departments.id', 'users.department_id')
             ->select(  'users.id as user_id',
@@ -49,8 +50,26 @@ class RequestsController extends Controller
             ->get();
         return view('work_requests.user_processing_requests')->with(['requests'=>$requests]);
     }
-
-
+    //List of user's finished word
+    public function userFinishedRequests()
+    {
+        $user = Auth::user();
+        $requests = DB::table('requests')
+            ->where('requests.treated_by',$user->id)
+            ->where('requests.state',"finished")
+            ->leftJoin('users', 'users.id', 'requests.user_id')
+            ->leftJoin('departments', 'departments.id', 'users.department_id')
+            ->select(  'users.id as user_id',
+                'users.first_name as first_name',
+                'users.last_name as last_name',
+                'requests.id as request_id',
+                'requests.description as request_description',
+                'requests.state as request_state',
+                'departments.id as department_id',
+                'departments.name as department_name')
+            ->get();
+        return view('work_requests.user_finished_requests')->with(['requests'=>$requests]);
+    }
 
     //List of work requests made by user
     public function userRequests()

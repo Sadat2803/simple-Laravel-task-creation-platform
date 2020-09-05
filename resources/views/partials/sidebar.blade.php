@@ -18,6 +18,34 @@
                             <span class="title">Demandes de travail</span>
                         </a>
                     </li>
+                    <li class="{{ $request->segment(1) == 'userProcessingRequests' ? 'active' : '' }}">
+                        <a href="{{route('userProcessingRequests')}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                 height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24"/>
+                                    <path
+                                        d="M16 17l5-5-5-5M19.8 12H9M10 3H4v18h6"
+                                        fill="#373870"/>
+                                </g>
+                            </svg>
+                            <span class="title">Mes travaux en cours</span>
+                        </a>
+                    </li>
+                    <li class="{{ $request->segment(1) == 'userFinishedRequests' ? 'active' : '' }}">
+                        <a href="{{route('userFinishedRequests')}}">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
+                                 height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <rect x="0" y="0" width="24" height="24"/>
+                                    <path
+                                        d="M16 17l5-5-5-5M19.8 12H9M10 3H4v18h6"
+                                        fill="#373870"/>
+                                </g>
+                            </svg>
+                            <span class="title">Travaux terminés</span>
+                        </a>
+                    </li>
                 @else
                     <li class="{{ $request->segment(1) == 'user_request' ? 'active' : '' }}">
                         <a href="{{route('userRequests')}}">
@@ -34,22 +62,6 @@
                         </a>
                     </li>
                 @endif
-                    @if(Auth::user()->department->location =="local")
-                        <li class="{{ $request->segment(1) == 'userProcessingRequests' ? 'active' : '' }}">
-                            <a href="{{route('userProcessingRequests')}}">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
-                                     height="24px" viewBox="0 0 24 24" version="1.1" class="kt-svg-icon">
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <rect x="0" y="0" width="24" height="24"/>
-                                        <path
-                                            d="M16 17l5-5-5-5M19.8 12H9M10 3H4v18h6"
-                                            fill="#373870"/>
-                                    </g>
-                                </svg>
-                                <span class="title">Mes travaux en cours</span>
-                            </a>
-                        </li>
-                    @endif
                     <li class="{{ $request->segment(1) == 'chat' ? 'active' : '' }}">
                         <a target="_blank" href="{{route('chat')}}" >
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
