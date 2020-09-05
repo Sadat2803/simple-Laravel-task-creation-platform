@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use File;
-
+use App\Message;
+use App\Events\SendMessage;
 class RequestsController extends Controller
 {
     //List of request of same department
@@ -132,13 +133,23 @@ class RequestsController extends Controller
     }
     public function fileUpload(Request $request)
     {
+        $message = Message::create([
+            'from_id' =>  Auth::user()->id,
+            'to_id' => $request->user_id,
+            'message' => "Un travail relatif à la demande N°".$request->request_id." a été délivré. Veuilliez consulter la demande pour le visualiser"
+        ]);
+        broadcast(new SendMessage($message));
+
         $request->validate([
             'file' => 'required|max:2048',
         ]);
 
+
+
         $fileName = time().'.'.$request->file->extension();
         $path = $request->request_id.'_uploads';
         $request->file->move(public_path($path), $fileName);
+
 
         return back()
             ->with('success','Le demandeur peut maintenant voir le travail envoyé ')

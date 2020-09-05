@@ -60,7 +60,7 @@
             <table id="requestsTable" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <!--  <th>Demande</th>-->
+                    <th>Num Demande</th>
                     <th>Description</th>
                     <th>Etat</th>
                     <th>Range</th>
@@ -73,7 +73,7 @@
                 <tbody>
                 @foreach($requests as $request)
                     <tr>
-                      <!--  <td>{{$request->request_id}}</td>-->
+                        <td>{{$request->request_id}}</td>
                         <td>{{$request->request_description}}</td>
                         <td>{{$request->request_state}}</td>
                           <td>{{$request->request_range}}</td>
